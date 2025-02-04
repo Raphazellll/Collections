@@ -2,10 +2,7 @@ package com.sets;
 
 import javax.swing.text.html.HTMLDocument;
 import java.lang.reflect.Array;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class exemploSet {
 
@@ -63,6 +60,29 @@ public class exemploSet {
             if (next1 < 6) iterator1.remove();
         }
         System.out.println(notas);
+
+        System.out.println("Exiba todas as notas na ordem em que foram informados: ");
+
+        Set<Double> notas2 = new LinkedHashSet<>();
+        notas2.add(9.4d);
+        notas2.add(2.5);
+        notas2.add(5.3);
+        notas2.add(8.8);
+        notas2.add(10.9);
+        notas2.add(7.9);
+        notas2.add(2.8);
+        System.out.println(notas2);
+
+        System.out.println("Exiba todas as notas na ordem crescente: ");
+        Set<Double> notas3 = new TreeSet<>(notas2);
+        System.out.println(notas3);
+
+        System.out.println("Apague todo o conjunto");
+        notas.clear();
+
+        System.out.println("Confira se o conjunto se está vazio: " + notas.isEmpty());
+        System.out.println("Confira se o conjunto se está vazio: " +  notas2.isEmpty());
+
 
 
     }
