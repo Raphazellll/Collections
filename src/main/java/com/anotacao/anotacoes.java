@@ -26,6 +26,7 @@ public class anotacoes {
 
 
 
+=======================================================================================================================
 
            Interface List
 
@@ -98,6 +99,7 @@ public class anotacoes {
                     É uma lista ligada, onde um elemento guarda a referência do próximo elemento
                     A escolha entre ArrayList e LinkedList depende do tipo de operações que serão realizadas na lista.
 
+=======================================================================================================================
 
        Interface Set
 
@@ -144,6 +146,41 @@ public class anotacoes {
                 Use HashSet para velocidade.
                 Use LinkedHashSet para ordem de inserção.
                 Use TreeSet para ordenação automática.
+
+
+=======================================================================================================================
+         Coleções de Pares: Map
+
+            A interface Map em Java faz parte do pacote java.util e é usada para representar uma estrutura de dados que armazena pares chave-valor, onde cada chave é única.
+            Ela é amplamente utilizada para buscar, atualizar ou gerenciar dados de forma eficiente.
+
+
+            Características Principais:
+                Chaves Únicas: Não permite chaves duplicadas.
+
+                Valores Repetidos: Os valores podem ser duplicados.
+
+                Não é uma Coleção: Map não estende a interface Collection, mas faz parte do framework de coleções do Java.
+
+            Implementações Comuns:
+                HashMap: Armazena pares chave-valor em uma tabela hash (não ordenada).
+
+                TreeMap: Armazena pares chave-valor em uma estrutura de árvore (ordenada por chaves).
+
+                LinkedHashMap: Mantém a ordem de inserção das chaves.
+
+                Quando Usar:
+                    Quando você precisa de acesso rápido a valores através de uma chave única.
+
+                    Para implementar estruturas como dicionários ou catálogos.
+
+                Observações:
+                    Use HashMap para performance geral.
+                    Use TreeMap se precisar de ordenação pelas chaves.
+                    Use LinkedHashMap para manter a ordem de inserção.
+                    Se precisar de thread-safety, considere ConcurrentHashMap ou Collections.synchronizedMap().
+
+
 
 
            
