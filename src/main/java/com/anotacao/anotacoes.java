@@ -98,6 +98,54 @@ public class anotacoes {
                     É uma lista ligada, onde um elemento guarda a referência do próximo elemento
                     A escolha entre ArrayList e LinkedList depende do tipo de operações que serão realizadas na lista.
 
+
+       Interface Set
+
+         import java.util.Set; -> o nome do pacote Set
+
+         A interface Set em Java faz parte do pacote java.util e é utilizada para representar coleções de elementos únicos (sem duplicatas).
+         Ela é uma das estruturas fundamentais do Java Collections Framework e é implementada por
+         classes como HashSet, LinkedHashSet e TreeSet. Abaixo estão os principais pontos sobre essa interface,
+         com exemplos e contextos práticos:
+
+1. Características Principais
+
+      Elementos únicos: Não permite duplicatas. Tentativas de adicionar elementos repetidos são ignoradas.
+        Ordem dos elementos:
+
+            HashSet: Não mantém ordem de inserção.
+
+            LinkedHashSet: Mantém a ordem de inserção.
+
+            TreeSet: Ordena elementos naturalmente (ou por um Comparator).
+
+        Desempenho:
+
+            HashSet é mais rápido para operações básicas (inserção, busca).
+
+            TreeSet é mais lento, mas mantém ordenação automática.
+
+            LinkedHashSet equilibra velocidade e ordem de inserção.
+
+2. Diferenças Entre Set e List
+
+        Característica	Set	List
+        Duplicatas	Não permite	Permite
+        Ordem de inserção	Depende da implementação	Sempre mantida
+        Acesso por índice	Não suportado	Suportado (ex.: get(0))
+        Desempenho	Geralmente mais rápido	Pode ser mais lento
+
+3. Boas Práticas
+
+            Implemente equals() e hashCode() para objetos personalizados (ex.: classe Cliente no exemplo de webpage 1).
+            Evite modificar elementos após inserção, pois isso pode afetar a unicidade.
+
+            Escolha a implementação correta:
+                Use HashSet para velocidade.
+                Use LinkedHashSet para ordem de inserção.
+                Use TreeSet para ordenação automática.
+
+
            
     */
 
