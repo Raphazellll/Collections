@@ -180,10 +180,77 @@ public class anotacoes {
                     Use LinkedHashMap para manter a ordem de inserção.
                     Se precisar de thread-safety, considere ConcurrentHashMap ou Collections.synchronizedMap().
 
+=======================================================================================================================
+
+    Java Stream
+
+        Classe Anônima
+            A classe anônima em JAVA é uma classe que não recebeu um nome e é tanto declarado e instanciado em uma única instrução.
+                Devemos considerar o uso de uma classe anônima sempre que você precisa para criar uma classe
+                que será instanciado apenas uma vez.
+
+            A classe anônima em Java é uma classe sem nome declarada e instanciada diretamente no ponto de uso,
+                geralmente para sobrescrever métodos de uma interface ou classe abstrata de forma rápida e concisa.
+                É útil quando você precisa de uma implementação única e não deseja criar uma classe separada.
+
+        Características:
+            Sem Nome: Não possui declaração formal (definida "on-the-fly").
+            Uso Imediato: É declarada e instanciada no mesmo local.
+            Acesso a Variáveis Locais: Pode acessar variáveis do escopo externo,
+                desde que sejam final ou effectively final.
+
+        Implementação de Interfaces/Classes Abstratas: Usada para implementar métodos de interfaces ou classes abstratas diretamente.
 
 
+     Limitações:
+        Sem Construtor: Não é possível definir um construtor explícito.
+        Código Menos Legível: Pode tornar o código confuso se muito complexa.
+        Não Reutilizável: Projetada para uso único.
 
-           
+
+     Quando Usar:
+        Para implementações simples e únicas (ex: eventos, threads).
+        Quando não é necessário reutilizar a lógica em outro contexto.
+        Em substituição a interfaces funcionais (antes do Java 8, onde hoje usamos lambdas).
+
+
+    EXEMPLO:
+           Sem Classe Anônima
+
+       List<Gato> meusGatos = new ArrayList<>(){{
+            add(new Gato("Vicente", 8, "Preto"));
+            add(new Gato("Oliver", 5, "Siamês" ));
+            add(new Gato("Morgana", 3, "Frajola"));
+            add(new Gato("Tom", 6, "Frajola Cinza"));
+            add(new Gato("Lucca", 3, "Branco"));
+            add(new Gato("Laranjinha", 3, "Laranja com Branco"));
+        }};
+        meusGatos.sort(new ComparatorIdade());
+
+      class ComparatorIdade( implements Comparator<Gato> {
+      public int compare (Gato g1, Gato g2) {
+        return Integer.compare(g1.getIdade(), g2.getIdade());
+
+       }
+     }
+
+     Com Classe Anônima
+
+    List<Gato> meusGatos = new ArrayList<>(){{
+            add(new Gato("Vicente", 8, "Preto"));
+            add(new Gato("Oliver", 5, "Siamês" ));
+            add(new Gato("Morgana", 3, "Frajola"));
+            add(new Gato("Tom", 6, "Frajola Cinza"));
+            add(new Gato("Lucca", 3, "Branco"));
+            add(new Gato("Laranjinha", 3, "Laranja com Branco"));
+        }};
+        meusGatos.sort(new Comparator<Gato>() {
+            public int compare (Gato g1, Gato g2) {
+                return Integer.compare(g1.getIdade(), g2.getIdade());
+        }
+      }
+
+
     */
 
 }
