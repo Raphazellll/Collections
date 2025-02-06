@@ -464,7 +464,111 @@ public class anotacoes {
 
         Principais Operações
             1. Criar uma Stream
+                List<String> lista = Arrays.asList("Java", "Python", "C++", "JavaScript");
 
+                // Criar stream a partir de uma lista
+                Stream<String> stream = lista.stream();
+
+             2. Operações Intermediárias
+
+                filter(Predicate<T>): Filtra elementos com base em uma condição.
+                        stream.filter(s -> s.length() > 3); // Filtra palavras com mais de 3 letras
+
+                map(Function<T, R>): Transforma cada elemento.
+                        stream.map(String::toUpperCase); // Converte para maiúsculas
+
+                stream.sorted(); // Ordem natural (alfabética)
+                    stream.sorted((s1, s2) -> s2.compareTo(s1)); // Ordem reversa
+
+                distinct(): Remove elementos duplicados.
+                    stream.distinct();
+
+
+              3. Operações Terminais
+
+                  collect(Collector): Transforma a stream em uma coleção.
+                        List<String> filtradas = lista.stream()
+                        .filter(s -> s.startsWith("J"))
+                        .collect(Collectors.toList()); // ["Java", "JavaScript"]
+
+                  forEach(Consumer<T>): Executa uma ação para cada elemento.
+                        lista.stream().forEach(System.out::println); // Imprime cada elemento
+
+                  count(): Conta elementos.
+                        long total = lista.stream().filter(s -> s.length() > 3).count();
+
+                  reduce(): Combina elementos em um único valor.
+                        Optional<String> concatenado = lista.stream()
+                        .reduce((s1, s2) -> s1 + ", " + s2); // Concatena todas as string
+
+
+
+
+                        Exemplo Completo:
+
+                      List<String> linguagens = Arrays.asList("Java", "Python", "C++", "JavaScript", "Ruby");
+
+                      // Pipeline de operações:
+                            List<String> resultado = linguagens.stream()
+                            .filter(s -> s.length() > 3)        // Filtra palavras com mais de 3 letras
+                            .map(String::toUpperCase)           // Converte para maiúsculas
+                            .sorted()                           // Ordena alfabeticamente
+                            .collect(Collectors.toList());      // Coleta em uma lista
+
+                        System.out.println(resultado); // Saída: [C++, JAVA, JAVASCRIPT, PYTHON, RUBY]
+
+        Streams Paralelas
+              Processamento paralelo para melhor desempenho em grandes volumes de dados:
+
+              List<String> resultadoParalelo = linguagens.parallelStream()
+                    .filter(s -> s.length() > 3)
+                    .collect(Collectors.toList());
+
+
+       Vantagens da Stream API
+           Código mais limpo: Substitui loops complexos por operações declarativas.
+           Facilita operações em massa: Filtragem, transformação e agregação simplificadas.
+           Integração com lambdas: Combina perfeitamente com expressões lambda e métodos de referência.
+
+
+       Casos de Uso Comuns
+
+        Filtrar e transformar dados:
+            List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+            List<Integer> paresAoQuadrado = numeros.stream()
+            .filter(n -> n % 2 == 0)
+            .map(n -> n * n)
+            .collect(Collectors.toList()); // [4, 16]
+
+        Agrupar elementos:
+            Map<Integer, List<String>> agrupadoPorTamanho = linguagens.stream()
+            .collect(Collectors.groupingBy(String::length));
+            // Exemplo: 4 -> ["Java", "Ruby"], 6 -> ["Python"]
+
+        Calcular estatísticas:
+            IntSummaryStatistics stats = numeros.stream()
+            .mapToInt(Integer::intValue)
+            .summaryStatistics();
+
+                System.out.println("Média: " + stats.getAverage());
+                System.out.println("Máximo: " + stats.getMax());
+
+
+
+                        Comparação: Stream vs. Loop Tradicional
+
+
+           Stream API                                             Loop Tradicional
+    Declarativo (foco no "o quê")	                          Imperativo (foco no "como")
+    Operações encadeadas	                                  Código aninhado
+    Facilita paralelismo	                                  Paralelismo manual complexo
+
+
+
+     Dicas Importantes:
+        Streams são consumidas uma vez: Após uma operação terminal, a stream não pode ser reutilizada.
+        Use Collectors: Para transformar streams em listas, conjuntos, mapas, etc.
+        Evite efeitos colaterais: Operações devem ser stateless (não depender de estado externo).
 
 
 
